@@ -1,14 +1,18 @@
 'use strict';
-
-// Declare app level module which depends on views, and components
+// Declare app module and its dependencies on views, and components
 angular.module('myApp', [
-  'ngRoute',
-  'myApp.view1',
-  'myApp.view2',
-  'myApp.version'
+	'ngRoute',
+	'myApp.view1',
+	'myApp.version',
+	'myApp.services',
+	'myApp.uiClasses',
+	'myApp.directives'
 ]).
-config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-  $locationProvider.hashPrefix('!');
-
-  $routeProvider.otherwise({redirectTo: '/view1'});
+config(['$routeProvider', function($routeProvider) {
+	$routeProvider.otherwise({
+		redirectTo: '/view1'
+	});
 }]);
+var uiClasses = angular.module('myApp.uiClasses', []);
+var myServices = angular.module('myApp.services', []);
+var myDirectives = angular.module('myApp.directives', []);
